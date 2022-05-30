@@ -157,4 +157,7 @@ cython_debug/
 .idea/
 .vscode/
 
+# Mesh files
+mesh/
+
 # End of https://www.toptal.com/developers/gitignore/api/python,jupyternotebooks

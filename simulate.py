@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import argparse
 import logging
 from datetime import datetime
@@ -38,25 +38,19 @@ class Simulate:
                  'the progress bar'
         )
 
-        parser.set_defaults(func=parser.print_help)
-        subparsers = parser.add_subparsers()
-
-        # Options for TDGL
-        tdgl_parser = subparsers.add_parser('tdgl', help='run TDGL simulation')
-
-        tdgl_parser.add_argument(
+        parser.add_argument(
             'input',
             metavar='INPUT',
             help='input mesh file'
         )
 
-        tdgl_parser.add_argument(
+        parser.add_argument(
             'output',
             metavar='OUTPUT',
             help='output file for the data'
         )
 
-        tdgl_parser.add_argument(
+        parser.add_argument(
             '-j',
             '--current',
             type=float,
@@ -64,7 +58,7 @@ class Simulate:
             help='set the initial current density'
         )
 
-        tdgl_parser.add_argument(
+        parser.add_argument(
             '-J',
             '--current-max',
             type=float,
@@ -73,14 +67,14 @@ class Simulate:
                  'initial and end)'
         )
 
-        tdgl_parser.add_argument(
+        parser.add_argument(
             '--steps-per-current',
             type=float,
             default=1,
             help='number of steps per current value'
         )
 
-        tdgl_parser.add_argument(
+        parser.add_argument(
             '-b',
             '--magnetic-field',
             type=float,
@@ -88,7 +82,7 @@ class Simulate:
             help='set the external magnetic field'
         )
 
-        tdgl_parser.add_argument(
+        parser.add_argument(
             '-t',
             '--time-step',
             type=float,
@@ -96,7 +90,7 @@ class Simulate:
             help='initial time step'
         )
 
-        tdgl_parser.add_argument(
+        parser.add_argument(
             '-s',
             '--steps',
             type=float,
@@ -104,7 +98,7 @@ class Simulate:
             help='number of simulation steps to run'
         )
 
-        tdgl_parser.add_argument(
+        parser.add_argument(
             '-e',
             '--save-every',
             type=float,
@@ -112,7 +106,7 @@ class Simulate:
             help='the number of steps to wait before saving the state'
         )
 
-        tdgl_parser.add_argument(
+        parser.add_argument(
             '--skip',
             type=float,
             default=0,
@@ -120,7 +114,7 @@ class Simulate:
                  'to thermalize'
         )
 
-        tdgl_parser.add_argument(
+        parser.add_argument(
             '-u',
             '--complex-time-scale',
             type=float,
@@ -128,7 +122,7 @@ class Simulate:
             help='set value for the complex field time scale'
         )
 
-        tdgl_parser.add_argument(
+        parser.add_argument(
             '-g',
             '--gamma',
             type=float,
@@ -136,63 +130,7 @@ class Simulate:
             help='set value for gamma'
         )
 
-        tdgl_parser.add_argument(
-            '--disorder',
-            action='store_true',
-            default=False,
-            help='enable disorder in the superconducting gap'
-        )
-
-        tdgl_parser.add_argument(
-            '--disorder-seed',
-            type=int,
-            default=None,
-            help='seed used to generate the disorder (default is a random seed)'
-        )
-
-        tdgl_parser.add_argument(
-            '--disorder-gap-dist',
-            type=str,
-            default='uniform',
-            help='distribution for the gap (default is uniform)'
-        )
-
-        tdgl_parser.add_argument(
-            '--disorder-gap-dist-loc',
-            type=float,
-            default=0.8,
-            help='distribution loc for gap (see scipy.stats, default is 0.8)'
-        )
-
-        tdgl_parser.add_argument(
-            '--disorder-gap-dist-scale',
-            type=float,
-            default=0.4,
-            help='distribution scale for gap (see scipy.stats, default is 0.4)'
-        )
-
-        tdgl_parser.add_argument(
-            '--disorder-size-dist',
-            type=str,
-            default='uniform',
-            help='distribution for the grains (default is uniform)'
-        )
-
-        tdgl_parser.add_argument(
-            '--disorder-size-dist-loc',
-            type=float,
-            default=1,
-            help='distribution loc for grain (see scipy.stats, default is 1)'
-        )
-
-        tdgl_parser.add_argument(
-            '--disorder-size-dist-scale',
-            type=float,
-            default=3,
-            help='distribution scale for grain (see scipy.stats, default is 3)'
-        )
-
-        tdgl_parser.set_defaults(func=self.run_tdgl)
+        parser.set_defaults(func=self.run_tdgl)
 
         # Get arguments
         self.args = parser.parse_args()
