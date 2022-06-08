@@ -59,8 +59,12 @@ class Mesh:
         # Store the data
         self.x = np.asarray(x)
         self.y = np.asarray(y)
-        self.elements = np.asarray(elements)
-        self.boundary_indices = np.asarray(boundary_indices)
+
+        # Setting dtype to int64 is important when running on Windows.
+        # Using default dtype uint64 does not work as Scipy indices in some
+        # instances.
+        self.elements = np.asarray(elements, dtype=np.int64)
+        self.boundary_indices = np.asarray(boundary_indices, dtype=np.int64)
         self.dual_mesh = dual_mesh
         self.edge_mesh = edge_mesh
         self.areas = np.asarray(areas)

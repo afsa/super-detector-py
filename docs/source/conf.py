@@ -46,6 +46,8 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
+# Enable numbering of figures.
+numfig = True
 
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),

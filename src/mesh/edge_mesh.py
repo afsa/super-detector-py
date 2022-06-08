@@ -38,7 +38,8 @@ class EdgeMesh:
         self.x = np.asarray(x)
         self.y = np.asarray(y)
         self.edges = np.asarray(edges)
-        self.boundary_edge_indices = np.asarray(boundary_edge_indices)
+        self.boundary_edge_indices = np.asarray(boundary_edge_indices,
+                                                dtype=np.int64)
         self.directions = np.asarray(directions)
         self.edge_lengths = np.asarray(edge_lengths)
         self.dual_edge_lengths = np.asarray(dual_edge_lengths)

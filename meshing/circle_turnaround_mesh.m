@@ -1,34 +1,14 @@
-%% Settings
+%% General settings
 
 % Define the geometry scale. This option allows for quickly rescaling the
 % geometry. This geometry is defined such that scale = 1 corresponds to a
 % leg width of one coherence length.
 scale = 14;
 
-% Define the input and output edges for the current flowing through the
-% superconductor. The edge labels are found by running the section 
-% "Generate geometry".
-%
-% NOTE: The length of the input and output edges need to have the same
-% length. The code has not been tested with non-vertical input and output
-% edges.
-input_edge = 8;
-output_edge = 9;
-
-% Define the probe points to measure voltage between.
-%
-% NOTE: The probe points should not be too close to the input and output
-% edges as the superconductor is suppressed close to these edges. If a too 
-% small buffer region is used, then the voltage is non-zero in the 
-% superconducting state.
-voltage_start = [1, 0];
-voltage_end = [1, 2];
-
-
 % Define the output directory and the output file name.
 % The output directory is created if it does not exist.
-output_dir = '../mesh';
-file_name = sprintf('circle_%d.h5', scale);
+outputDir = '../mesh';
+fileName = sprintf('circle_%d.h5', scale);
 
 %% Generate geometry
 model = createpde;
@@ -78,9 +58,34 @@ g = makeGeometry('R1+(R2-C1)+R3', char('R1', 'R2', 'R3', 'C1'),...
 geometryFromEdges(model, g);
 clf()
 pdegplot(model, 'EdgeLabels','on')
+
+%% Geometry settings
+
+% Define the input and output edges for the current flowing through the
+% superconductor. The edge labels are found by running the section 
+% "Generate geometry".
+%
+% NOTE: The length of the input and output edges need to have the same
+% length. The code has not been tested with non-vertical input and output
+% edges.
+inputEdge = 8;
+outputEdge = 9;
+
+% Define the probe points to measure voltage between.
+%
+% NOTE: The probe points should not be too close to the input and output
+% edges as the superconductor is suppressed close to these edges. If a too 
+% small buffer region is used, then the voltage is non-zero in the 
+% superconducting state.
+voltageStart = [1, 0] * scale;
+voltageEnd = [1, 2] * scale;
+
+clf()
+pdegplot(model, 'EdgeLabels','on')
 hold on
-plot(voltage_start(1) * scale, voltage_start(2) * scale, 'o')
-plot(voltage_end(1) * scale, voltage_end(2) * scale, 'o')
+plot(voltage_start(1), voltage_start(2), 'o')
+plot(voltage_end(1), voltage_end(2), 'o')
+
 
 %% Generate mesh
 
@@ -94,6 +99,6 @@ pdeplot(model)
 
 %% Save mesh
 
-file_path = fullfile(output_dir, file_name);
-saveMesh(model, g, input_edge, output_edge, voltage_start * scale, ...
-voltage_end * scale, file_path);
+filePath = fullfile(outputDir, fileName);
+saveMesh(model, g, inputEdge, outputEdge, voltageStart, ...
+voltageEnd, filePath);
