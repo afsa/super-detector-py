@@ -38,7 +38,7 @@ It is recommended to setup a Python environment for SuperDetectorPy to guarantee
 Using Anaconda / Miniconda (recommended)
 ----------------------------------------
 
-Open a terminal with ``conda`` available (called Anaconda Prompt on Windows) and navigate to the root of the SuperDetectorPy repository. Run the following commands to setup the environment and install dependencies
+Open a terminal with ``conda`` available (called Anaconda Prompt on Windows) and navigate to the root of the SuperDetectorPy repository. Run the following commands to setup the environment and install dependencies:
 
 .. code-block:: bash
 
@@ -47,7 +47,7 @@ Open a terminal with ``conda`` available (called Anaconda Prompt on Windows) and
     conda activate SuperDetectorPy
     pip install -r requirements.txt
 
-Verify that the installation was successful by running
+Verify that the installation was successful by running:
 
 .. code-block:: bash
 
@@ -55,7 +55,7 @@ Verify that the installation was successful by running
 
 .. note::
 
-    The ``SuperDetectorPy`` Anaconda environment needs to be active when running Python scripts in this repository. If the environment has been deactivated, then run the following command in terminal with ``conda`` available.
+    The ``SuperDetectorPy`` Anaconda environment needs to be active when running Python scripts in this repository. If the environment has been deactivated, then run the following command in terminal with ``conda`` available:
 
     .. code-block:: bash
 
@@ -66,7 +66,7 @@ Using virtualenv
 
 SuperDetectorPy only works with ``python3`` and has only been tested using virtualenv with ``python3.8`` on Ubuntu 20.04. If multiple Python versions are installed, then virtualenv's ``--python`` option may be used to specify the version.
 
-Open a terminal, navigate to the root of the SuperDetectorPy repository, and run
+Open a terminal, navigate to the root of the SuperDetectorPy repository, and run:
 
 .. code-block:: bash
 
@@ -74,7 +74,7 @@ Open a terminal, navigate to the root of the SuperDetectorPy repository, and run
     source venv/bin/activate
     pip install -r requirements.txt
 
-Verify that the installation was successful by running
+Verify that the installation was successful by running:
 
 .. code-block:: bash
 
@@ -82,7 +82,7 @@ Verify that the installation was successful by running
 
 .. note::
 
-    The virtual environment needs to be active when running Python scripts in this repository. If the environment has been deactivated, then run the following command in the root of the repository.
+    The virtual environment needs to be active when running Python scripts in this repository. If the environment has been deactivated, then run the following command in the root of the repository:
 
     .. code-block:: bash
 

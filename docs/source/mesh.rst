@@ -7,14 +7,14 @@ Meshes in SuperDetectorPy define the simulation geometry and the corresponding d
 Units used in meshes
 ====================
 
-SuperDetectorPy runs all simulations in dimensionless units, which means that the lengths in the meshes are measured in the superconducting coherence length. For materials used in superconducting single-photon detectors (e.g. NbN, NbTiN, WSi, etc) the coherence length is typically around ``5 - 10 nm``. More information about the dimensionless units is available in section 2.2.1 in `Theory for superconducting few-photon detectors <https://urn.kb.se/resolve?urn=urn:nbn:se:kth:diva-312132>`_.
+SuperDetectorPy runs all simulations in dimensionless units, which means that the lengths in the meshes are measured in the superconducting coherence length :math:`\xi`. For materials used in superconducting single-photon detectors (e.g. NbN, NbTiN, WSi, etc) the coherence length is typically around :math:`5 - 10 \, \text{nm}`. More information about the dimensionless units is available in section 2.2.1 in `Theory for superconducting few-photon detectors <https://urn.kb.se/resolve?urn=urn:nbn:se:kth:diva-312132>`_.
 
 Generate mesh for a new geometry
 ================================
 
 Open Matlab in the directory ``meshing``, which is located in the root of the repository. Copy the boilerplate mesh ``circle_turnaround_mesh.m`` and call it something appropriate. Open the copied file in Matlab.
 
-The boilerplate code consists of five sections, which are intended to be run sequencially (use ``ctrl + enter`` to run the section marked by cursor). Make sure to always run the section after you make an update of it.
+The boilerplate code consists of five sections, which are intended to be run sequentially (use ``ctrl + enter`` to run the section marked by cursor). Make sure to always run the section after you make an update of it.
 
 General settings
 ----------------
@@ -28,7 +28,7 @@ The general settings section contains settings for mesh size and output path for
     % leg width of one coherence length.
     scale = 14;
 
-The ``scale`` parameter sets the scale of the geometry and allows for quick rescaling. By default in the boilerplates, ``scale = 1`` corresponds to a wire width of one coherence length. A typical NbN nanowire used in superconducting single-photon detectors is around 20 coherence lengths (which is around ``100 nm``).
+The ``scale`` parameter sets the scale of the geometry and allows for quick rescaling. By default in the boilerplates, ``scale = 1`` corresponds to a wire width of one coherence length :math:`\xi`. A typical NbN nanowire used in superconducting single-photon detectors is around :math:`20 \xi`, which is around :math:`100 \, \text{nm}`.
 
 It is recommended to set the scale parameter to ``scale = 1`` when creating a new mesh. The scale parameter may then be updated to something appropriate after the mesh script is finished.
 
@@ -191,7 +191,7 @@ The ``voltageStart``, and ``voltageEnd`` are the points were voltage probes are 
 Generate mesh
 -------------
 
-This section is used to generate a mesh for the geometry defined in the previous sections. By default the maximal link length is one half coherence length and the minimal link length is ``sqrt(0.1)`` coherence length. Reducing these sizes reduces the discretization error, but also forces a shorter time step to ensure stability. The current sizes are selected such that a time step of ``0.01`` may be used when ``gamma = 10`` and ``u = 5.79``.
+This section is used to generate a mesh for the geometry defined in the previous sections. By default the maximal link length is :math:`\xi / 2` and the minimal link length is :math:`\sqrt{0.1} \xi`. Reducing these sizes reduces the discretization error, but also forces a shorter time step to ensure stability. The current sizes are selected such that a time step of :math:`0.01 \tau` may be used when :math:`\gamma = 10` and :math:`u = 5.79`.
 
 Save mesh
 ---------
@@ -217,4 +217,4 @@ The compile script updates the uncompiled mesh file into a compiled mesh file an
 
     .. code-block:: bash
 
-        python compile-mesh.py RELATIVE_PATH_TO_MESH_FILE1 RELATIVE_PATH_TO_MESH_FILE2 ...
+        python compile-mesh.py RELATIVE_PATH_TO_MESH_FILE [RELATIVE_PATH_TO_MESH_FILE ...]
