@@ -11,8 +11,7 @@ current crowding effect.
 
 ## Getting started
 
-Check out the [documentation](https://super-detector-py.readthedocs.io) for 
-information.
+Please refer to the [documentation](https://super-detector-py.readthedocs.io).
 
 ## License and citing
 
