@@ -26,7 +26,7 @@ Alternatively, in a Linux terminal run
 
 .. code-block:: bash
 
-    wget -O super-detector-py.zip https://github.com/afsa/super-detector-py/archive/refs/tags/v1.0.0.zip && \
+    wget -O super-detector-py.zip https://github.com/afsa/super-detector-py/archive/refs/tags/v1.0.1.zip && \
     unzip super-detector-py.zip && \
     rm super-detector-py.zip
 

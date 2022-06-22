@@ -63,8 +63,8 @@ voltageEnd = [1, 2] * scale;
 clf()
 pdegplot(model, 'EdgeLabels','on')
 hold on
-plot(voltage_start(1), voltage_start(2), 'o')
-plot(voltage_end(1), voltage_end(2), 'o')
+plot(voltageStart(1), voltageStart(2), 'o')
+plot(voltageEnd(1), voltageEnd(2), 'o')
 
 
 %% Generate mesh
