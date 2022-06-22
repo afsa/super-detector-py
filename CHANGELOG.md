@@ -4,3 +4,4 @@
 
 - Added video workshop link to README.md.
 - Fixed voltage probe variable name typo in example meshes.
+- Moved voltage point in straight_mesh.m.

@@ -58,7 +58,7 @@ outputEdge = 4;
 % small buffer region is used, then the voltage is non-zero in the 
 % superconducting state.
 voltageStart = [1, 0] * scale;
-voltageEnd = [1, 2] * scale;
+voltageEnd = [5, 0] * scale;
 
 clf()
 pdegplot(model, 'EdgeLabels','on')
